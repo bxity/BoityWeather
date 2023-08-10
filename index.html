@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link href="src/script.js" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="weatherForm">
+        <input type="text" id="city" placeholder="Enter city" required />
+        <button type="submit">Get Weather</button>
+      </form>
+      <br />
+      <div id="currentDateTime"></div>
+      <div id="result"></div>
+      <table>
+        <tr>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+        </tr>
+        <tr>
+          <td>🌧️</td>
+          <td>☁️</td>
+          <td>🌥️</td>
+          <td>🌧️</td>
+          <td>☀️</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
