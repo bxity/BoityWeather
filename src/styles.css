@@ -1,51 +1,162 @@
 body {
-  background-image: url("https://www.stormshieldapp.com/static/images/section1.1-bg.jpg");
-  background-size: cover;
+  background: #f6e5e5; 
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+h1 {
+  font-weight: 400;
+  margin-block-end: 0;
+  color: purple;
 }
 
-th,
-td {
-  text-align: center;
-  padding: 10px;
+input {
+  color: #5c636e;
+  font-weight: 300;
+  background: rgba(232, 236, 217, 0.6);
+  border: none;
+  border-radius: 15px;
+  padding: 8px 20px;
 }
 
 .container {
-  border-radius: 40px;
-  padding: 60px;
-  margin: 80px auto;
-  display: block;
-  max-width: 900px;
-  max-height: 900px;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  color: #1e1c1c;
+  font-family: 'Pacifico', cursive;
+  margin: 20px auto;
+  padding: 35px 42px;
+  width: 700px;
 }
 
-#currentDateTime {
+.search-box {
+  color: #5c636e;
+  font-weight: 300;
+  background: rgba(232, 236, 217, 0.6);
+  border-radius: 15px;
+  padding: 15px 20px;
+}
+
+.search-btn5 {
+  border: 1px solid purple;
+  border-radius: 6px;
+  color: purple;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px 15px;
+  background: transparent;
+  transition: all 300ms ease-in-out;
+}
+
+.search-btn5:hover {
+  background: purple;
+  color: #fff;
+}
+
+.up-to-date-container {
+  margin-block-start: 10px;
+  margin-block-end: 30px;
+  margin-inline-start: 14px;
+}
+
+.johannesburg-temp {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.align {
+  height: 2em;
+  justify-content: space-around;
+}
+
+.large-temp {
+  align-items: center;
+  display: flex;
+  font-size: 60px;
+}
+
+.degrees-of-temp {
+  align-items: flex-start;
+  color: purple;
+  display: flex;
   font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  text-decoration: none;
+}
+
+.degrees-of-temp:hover {
+  cursor: pointer;
+}
+
+.forecast {
+  font-weight: 500;
+  font-size: 16px;
   text-align: center;
 }
 
-form {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  padding: 20px;
+.wi {
+  display: inline-block;
+  font-family: 'weathericons';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#result {
-  padding: 10px;
-  max-width: 300px;
-  margin: 0 auto;
-  text-align: center;
+.col-2 {
+  font-size: 40px;
+  position: relative;
 }
 
-#result p {
-  margin: 5px;
-  font-size: 22px;
+.last-update {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 24px;
+  margin-block-end: 30px;
+}
+
+.params-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.params {
+  font-size: 15px;
+  font-weight: 500;
+  text-align: right;
+  margin: 0 14px 0 0;
+}
+
+.locationdot {
+  color: purple;
+  cursor: pointer;
+  float: right;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.location-btn {
+  border: 1px solid #0a5acf;
+  padding: 6px 15px;
+  text-decoration: none;
+  color: purple;
+  cursor: pointer;
+}
+
+
+.attribution {
+  color: blue;
+  font-family: 'Pacifico', cursive;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.attribution-link {
+  color: blue;
+  text-decoration: none;
+  position: relative;
 }
