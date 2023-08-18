@@ -59,11 +59,15 @@ function success(position) {
   const apiKey = "31b4e5b138aa68767a86bde182ff2f27";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
 
-  axios.get(apiUrl).then(update);
-}
+  const cityElement = document.querySelector("h1");
+  cityElement.innerHTML = "Your Current Location";
 
-const crosshairs = document.getElementById("clickable-locationdot");
-crosshairs.addEventListener("click", getPosition);
+const locationdot = document.getElementById("clickable-locationdot");
+locationdot.addEventListener("click", getPosition);
+
+axios.get(apiUrl).then(update);
+
+}
 
 const celsiusButton = document.getElementById("degree-celsius");
 const fahrenheitButton = document.getElementById("degree-fahrenheit");
