@@ -2,52 +2,111 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
-      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      src="https://kit.fontawesome.com/68f0542e0f.js"
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css" />
+    <link rel="stylesheet" href="http://opensource.org/licenses/mit-license.html">
     <title>Weather App</title>
-  </head>
+    </head>
   <body>
     <div class="container">
-      <form id="weatherForm">
-        <input type="text" id="city" placeholder="Enter city" required />
-        <button type="submit">Get Weather</button>
+
+      <form id="search-form">
+        <div class="row d-flex align-items-center">
+          <div class="col-1">
+            <i class="fa-solid fa-location-dot"
+              id="clickable-locationdot"></i>
+          </div>
+          <div class="col-9">
+            <input
+              type="text"
+              placeholder="Enter a city"
+              style="width: 28em"
+              id="user-city"
+            />
+          </div>
+          <div class="col-2">
+            <input
+              type="submit"
+              value="Search"
+              class="search-btn5"
+              id="search-btn"
+            />
+          </div>
+        </div>
       </form>
-      <br />
-      <div id="currentDateTime"></div>
-      <div id="result"></div>
-      <table>
-        <tr>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-        </tr>
-        <tr>
-          <td>🌧️</td>
-          <td>☁️</td>
-          <td>🌥️</td>
-          <td>🌧️</td>
-          <td>☀️</td>
-        </tr>
-      </table>
+      
+      <div class="up-to-date-container">
+        <h1><span id="city-name">Johannesburg</span></h1>
+        <div class="last-update" id="local-time">Friday 6:00pm</div>
+        <div class="row">
+          <div class="col-2">
+  <i class="wi wi-day-rain"></i>
+</div>
+
+          <div class="col-3 johannesburg-temp">
+            <div class="d-flex align">
+  <span class="large-temp" id="city-temperature">25</span>
+  <span class="degrees-of-temp degrees-of-temp:hover" id="degree-celsius">°C</span>
+  <span class="degrees-of-temp degrees-of-temp:hover" id="degree-fahrenheit">°F</span>
+</div>
+
+            <div id="weather-report">
+              Sunny <br />
+              <span>23°&nbsp;&nbsp;</span>
+              <span class="grey-temp">25°</span>
+            </div>
+          </div>
+          <div class="col params-container params" id="weather-params">
+            Precipitation: 10% <br />
+            Humidity: 90%<br />
+            Wind Speed: 5 km/h
+          </div>
+        </div>
+      </div>
+  
+      <div class="row justify-content-center">
+        <table>
+  <tr>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+  </tr>
+  <tr>
+    <div class="wi">
+    <td><i class="wi wi-day-rain"></i></td>
+    <td><i class="wi wi-day-cloudy"></i></td>
+    <td><i class="wi wi-day-cloudy-high"></i></td>
+    <td><i class="wi wi-day-rain"></i></td>
+    <td><i class="wi wi-day-sunny"></i></td>
+  </tr>
+</table>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      <a
+        href="https://github.com/bxity/BoityWeather.git"
+        class="attribution-link">Open Source Code by Boitumelo Vilakazi</a>
+  
     </div>
     <script src="src/script.js"></script>
-    <a href="https://github.com/bxity/BoityWeather.git"
-      >Open Source Code by Boitumelo Vilakazi</a
-    >
-  </body>
+    </body>
 </html>

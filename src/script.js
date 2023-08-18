@@ -13,14 +13,18 @@ function updateDateTime() {
   currentDateTimeElement.textContent = getCurrentDateTime();
 }
 
+function createWeatherTemplate(cityName, currentTemp) {
+  return `
+    <p>City: ${cityName}</p>
+    <p>Current Temperature: ${currentTemp} °C</p>`;
+}
+
 function displayWeatherData(data) {
   const cityName = data.name;
   const currentTemp = data.main.temp;
 
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `
-    <p>City: ${cityName}</p>
-    <p>Current Temperature: ${currentTemp} °C</p>`;
+  resultDiv.innerHTML = createWeatherTemplate(cityName, currentTemp);
 }
 
 function handleWeatherError(error) {
