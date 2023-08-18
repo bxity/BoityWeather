@@ -48,10 +48,6 @@ function update(response) {
     " km/h";
 }
 
-function getPosition(event) {
-  navigator.geolocation.getCurrentPosition(success);
-}
-
 function success(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
@@ -66,6 +62,10 @@ const locationdot = document.getElementById("clickable-locationdot");
 locationdot.addEventListener("click", getPosition);
 
 axios.get(apiUrl).then(update);
+
+function getPosition(event) {
+  navigator.geolocation.getCurrentPosition(success);
+}
 
 }
 
