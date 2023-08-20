@@ -46,6 +46,20 @@ function update(response) {
     "Wind: " +
     windSpeedData +
     " km/h";
+
+    const weatherDescriptionData = response.data.weather[0].description;
+
+    const weatherDescriptionElement = document.getElementById(
+      "weather-description"
+    );
+    const humidityElement = document.getElementById("humidity");
+    const windSpeedElement = document.getElementById("wind-speed");
+
+    weatherDescriptionElement.textContent =
+      "Description: " + weatherDescriptionData;
+    humidityElement.textContent = "Humidity: " + humidityData + "%";
+    windSpeedElement.textContent = "Wind Speed: " + windSpeedData + " km/h";
+
 }
 
 function success(position) {
@@ -145,16 +159,36 @@ function getWeatherData(event) {
   const unit = "metric";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=${unit}`;
 
-  axios
-    .get(apiUrl)
-    .then(function (response) {
-      update(response);
-      updateCityName(userCity);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    axios
+      .get(apiUrl)
+      .then(function (response) {
+        update(response);
+        updateCityName(userCity);
+        updateWeatherParameters(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
 }
+
+function updateWeatherParameters(response) {
+  const weatherDescriptionData = response.data.weather[0].description;
+  const humidityData = response.data.main.humidity;
+  const windSpeedData = Math.round(response.data.wind.speed);
+
+  const weatherDescriptionElement = document.getElementById(
+    "weather-description"
+  );
+  const humidityElement = document.getElementById("humidity");
+  const windSpeedElement = document.getElementById("wind-speed");
+
+  weatherDescriptionElement.textContent =
+    "Description: " + weatherDescriptionData;
+  humidityElement.textContent = "Humidity: " + humidityData + "%";
+  windSpeedElement.textContent = "Wind Speed: " + windSpeedData + " km/h";
+}
+
 
 const searchForm = document.getElementById("search-form");
 searchForm.addEventListener("submit", getWeatherData);
