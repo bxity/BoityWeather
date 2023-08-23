@@ -192,3 +192,43 @@ function updateWeatherParameters(response) {
 
 const searchForm = document.getElementById("search-form");
 searchForm.addEventListener("submit", getWeatherData);
+
+function updateWeatherIcon(conditionCode) {
+  const iconElement = document.getElementById("weather-icon");
+  const weatherIconsMap = {
+    "01d": "wi-day-sunny",
+    "02d": "wi-day-cloudy",
+    "03d": "wi-cloud",
+    "04d": "wi-cloudy",
+    "09d": "wi-day-showers",
+    "10d": "wi-day-rain",
+    "11d": "wi-day-thunderstorm",
+    "13d": "wi-day-snow",
+    "50d": "wi-day-fog",
+  };
+  
+  const defaultIconClass = "wi-day-sunny";
+  
+  const iconClass = weatherIconsMap[conditionCode] || defaultIconClass;
+  
+  iconElement.className = "wi " + iconClass;
+}
+
+function updateWeatherData(weatherData) {
+  const conditionCode = weatherData.weather[0].icon;
+  
+  updateWeatherIcon(conditionCode);
+  
+}
+
+axios
+  .get(
+    "https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=${unit}"
+  )
+  .then((response) => {
+    const weatherData = response.data;
+    updateWeatherData(weatherData);
+  })
+  .catch((error) => {
+    console.error("Error fetching weather data:", error);
+  });
