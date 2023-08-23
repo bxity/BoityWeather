@@ -215,8 +215,7 @@ function updateWeatherIcon(conditionCode) {
 }
 
 function updateWeatherData(weatherData) {
-  const conditionCode = weatherData.weather[0].icon;
-  
+  console.log("Weather Condition Code:", weatherData.weather[0].icon);
   updateWeatherIcon(conditionCode);
   
 }
