@@ -34,6 +34,11 @@ function update(response) {
   const weatherReport = document.getElementById("weather-report");
   const weatherParams = document.getElementById("weather-params");
 
+   let iconUrl = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+   let icon = document.getElementById("mainIcon");
+   icon.setAttribute("src", iconUrl);
+   icon.setAttribute("alt", response.data.weather[0].main);
+
   city.innerHTML = cityData;
   temp.innerHTML = tempData;
   weatherReport.innerHTML =
@@ -47,19 +52,18 @@ function update(response) {
     windSpeedData +
     " km/h";
 
-    const weatherDescriptionData = response.data.weather[0].description;
+  const weatherDescriptionData = response.data.weather[0].description;
 
-    const weatherDescriptionElement = document.getElementById(
-      "weather-description"
-    );
-    const humidityElement = document.getElementById("humidity");
-    const windSpeedElement = document.getElementById("wind-speed");
+  const weatherDescriptionElement = document.getElementById(
+    "weather-description"
+  );
+  const humidityElement = document.getElementById("humidity");
+  const windSpeedElement = document.getElementById("wind-speed");
 
-    weatherDescriptionElement.textContent =
-      "Description: " + weatherDescriptionData;
-    humidityElement.textContent = "Humidity: " + humidityData + "%";
-    windSpeedElement.textContent = "Wind Speed: " + windSpeedData + " km/h";
-
+  weatherDescriptionElement.textContent =
+    "Description: " + weatherDescriptionData;
+  humidityElement.textContent = "Humidity: " + humidityData + "%";
+  windSpeedElement.textContent = "Wind Speed: " + windSpeedData + " km/h";
 }
 
 function success(position) {
@@ -72,15 +76,14 @@ function success(position) {
   const cityElement = document.querySelector("h1");
   cityElement.innerHTML = "Your Current Location";
 
-const locationdot = document.getElementById("clickable-locationdot");
-locationdot.addEventListener("click", getPosition);
+  const locationdot = document.getElementById("clickable-locationdot");
+  locationdot.addEventListener("click", getPosition);
 
-axios.get(apiUrl).then(update);
+  axios.get(apiUrl).then(update);
 
-function getPosition(event) {
-  navigator.geolocation.getCurrentPosition(success);
-}
-
+  function getPosition(event) {
+    navigator.geolocation.getCurrentPosition(success);
+  }
 }
 
 const celsiusButton = document.getElementById("degree-celsius");
@@ -159,17 +162,16 @@ function getWeatherData(event) {
   const unit = "metric";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=${unit}`;
 
-    axios
-      .get(apiUrl)
-      .then(function (response) {
-        update(response);
-        updateCityName(userCity);
-        updateWeatherParameters(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
+  axios
+    .get(apiUrl)
+    .then(function (response) {
+      update(response);
+      updateCityName(userCity);
+      updateWeatherParameters(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
 
 function updateWeatherParameters(response) {
@@ -189,41 +191,5 @@ function updateWeatherParameters(response) {
   windSpeedElement.textContent = "Wind Speed: " + windSpeedData + " km/h";
 }
 
-
 const searchForm = document.getElementById("search-form");
 searchForm.addEventListener("submit", getWeatherData);
-
-
-const weatherIconsMap = {
-  "01d": "owf owf-800",
-  "02d": "owf owf-801",
-  "03d": "owf owf-803",
-  "04d": "owf owf-804",
-  "09d": "owf owf-502",
-  "10d": "owf owf-501",
-  "11d": "owf owf-200",
-  "13d": "owf owf-600",
-  "50d": "owf owf-741",
-
-};
-
-
-function updateWeatherIcon(conditionCode) {
-  const iconElement = document.getElementById("weather-icon");
-  const iconClass = weatherIconsMap[conditionCode] || "owf owf-800"; 
-
-
-  iconElement.className = iconClass;
-}
-
-
-const apiResponse = {
-  weather: [
-    {
-      icon: "01d" 
-    }
-  ]
-};
-
-
-updateWeatherIcon(apiResponse.weather[0].icon);
