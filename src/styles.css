@@ -24,8 +24,9 @@ input {
   color: #1e1c1c;
   font-family: 'Pacifico', cursive;
   margin: 20px auto;
-  padding: 35px 42px;
+  padding: 30px 42px;
   width: 700px;
+  justify-content: center;
 }
 
 .search-box {
@@ -56,6 +57,7 @@ input {
   margin-block-start: 10px;
   margin-block-end: 30px;
   margin-inline-start: 14px;
+  justify-content: center;
 }
 
 .johannesburg-temp {
@@ -66,13 +68,12 @@ input {
 
 .align {
   height: 2em;
-  justify-content: space-around;
+  justify-content: left;
 }
 
 .large-temp {
-  align-items: center;
-  display: flex;
   font-size: 60px;
+  justify-content: center;
 }
 
 .degrees-of-temp {
@@ -87,27 +88,6 @@ input {
   cursor: pointer;
 }
 
-.forecast {
-  font-weight: 500;
-  font-size: 16px;
-  text-align: center;
-}
-
-.wi {
-  display: inline-block;
-  font-family: 'weathericons';
-  font-size: 30px;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.col-2 {
-  font-size: 40px;
-  position: relative;
-}
 
 .last-update {
   font-weight: 300;
@@ -120,10 +100,11 @@ input {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  font-size: 50px;
 }
 
 .params {
-  font-size: 15px;
+  font-size: 50px;
   font-weight: 500;
   text-align: right;
   margin: 0 14px 0 0;
@@ -161,6 +142,12 @@ input {
   position: relative;
 }
 
-.col-2 {
-  text-align: left;
+.col-7 {
+  text-align: right;
+  position: absolute;
+}
+
+.icon {
+  display: flex;
+  justify-content: right;
 }

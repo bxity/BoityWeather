@@ -9,17 +9,22 @@ function formatTime(date) {
     "Saturday",
   ];
 
-  const day = weekDays[now.getDay()];
-  const hour = now.getHours();
-  const min = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
+  const day = weekDays[date.getDay()];
+  const hour = date.getHours();
+  const min = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
 
   return `${day} ${hour}:${min}`;
 }
 
-const now = new Date();
-const localTime = document.getElementById("local-time");
-localTime.innerHTML = formatTime(now);
+function updateLocalTime() {
+  const now = new Date();
+  const localTime = document.getElementById("local-time");
+  localTime.innerHTML = formatTime(now);
+}
 
+updateLocalTime();
+
+setInterval(updateLocalTime, 60000);
 
 function success(position) {
   const lat = position.coords.latitude;
@@ -133,6 +138,10 @@ function updateWeatherParameters(response) {
   const weatherDescriptionData = response.data.weather[0].description;
   const humidityData = response.data.main.humidity;
   const windSpeedData = Math.round(response.data.wind.speed);
+  let iconUrl = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+  let icon = document.getElementById("icon");
+  icon.setAttribute("src", iconUrl);
+  icon.setAttribute("alt", response.data.weather[0].main);
 
   const weatherDescriptionElement = document.getElementById(
     "weather-description"
