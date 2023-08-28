@@ -160,3 +160,7 @@ input {
   text-decoration: none;
   position: relative;
 }
+
+.col-2 {
+  text-align: left;
+}

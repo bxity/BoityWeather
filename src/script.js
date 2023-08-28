@@ -20,51 +20,6 @@ const now = new Date();
 const localTime = document.getElementById("local-time");
 localTime.innerHTML = formatTime(now);
 
-function update(response) {
-  const cityData = response.data.name;
-  const tempData = Math.round(response.data.main.temp);
-  const maxTempData = Math.round(response.data.main.temp_max);
-  const minTempData = Math.round(response.data.main.temp_min);
-  const descrData = response.data.weather[0].main;
-  const humidityData = response.data.main.humidity;
-  const windSpeedData = Math.round(response.data.wind.speed);
-
-  const city = document.querySelector("h1");
-  const temp = document.getElementById("city-temperature");
-  const weatherReport = document.getElementById("weather-report");
-  const weatherParams = document.getElementById("weather-params");
-
-   let iconUrl = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
-   let icon = document.getElementById("mainIcon");
-   icon.setAttribute("src", iconUrl);
-   icon.setAttribute("alt", response.data.weather[0].main);
-
-  city.innerHTML = cityData;
-  temp.innerHTML = tempData;
-  weatherReport.innerHTML =
-    descrData + "<br />" + maxTempData + "°&nbsp;&nbsp" + minTempData + "°";
-  weatherParams.innerHTML =
-    "Humidity: " +
-    humidityData +
-    "%" +
-    "<br />" +
-    "Wind: " +
-    windSpeedData +
-    " km/h";
-
-  const weatherDescriptionData = response.data.weather[0].description;
-
-  const weatherDescriptionElement = document.getElementById(
-    "weather-description"
-  );
-  const humidityElement = document.getElementById("humidity");
-  const windSpeedElement = document.getElementById("wind-speed");
-
-  weatherDescriptionElement.textContent =
-    "Description: " + weatherDescriptionData;
-  humidityElement.textContent = "Humidity: " + humidityData + "%";
-  windSpeedElement.textContent = "Wind Speed: " + windSpeedData + " km/h";
-}
 
 function success(position) {
   const lat = position.coords.latitude;
